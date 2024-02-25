@@ -102,7 +102,7 @@
             computed: {
               result2()
               {
-
+                return `媽媽買了 ${this.productName}，總共花費 ${this.productPrice} 元，另外這 ${this.productVegan ? '是' : '不是'} 素食的`;
               }
             },
             watch: {
@@ -116,6 +116,25 @@
                 {
                   this.result = `輸入的文字僅有 ${newName.length} 個字，上一次有 ${oldName.length} 個字`;
                 }
+              },
+              productName()
+              {
+                this.result3 = `媽媽買了 ${this.productName}，總共花費 ${this.productPrice} 元，另外這 ${this.productVegan ? '是' : '不是'} 素食的`;
+              },
+              productPrice()
+              {
+                this.result3 = `媽媽買了 ${this.productName}，總共花費 ${this.productPrice} 元，另外這 ${this.productVegan ? '是' : '不是'} 素食的`;
+              },
+              productVegan()
+              {
+                this.result3 = `媽媽買了 ${this.productName}，總共花費 ${this.productPrice} 元，另外這 ${this.productVegan ? '是' : '不是'} 素食的`;
+              },
+              product: {
+                handler(newProduct, oldProduct)
+                {
+                  this.result4 = `媽媽買了 ${this.product.name}，總共花費 ${this.product.price} 元，另外這 ${this.product.vegan ? '是' : '不是'} 素食的`;
+                },
+                deep: true
               },
             },
             // 保留文字：
